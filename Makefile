@@ -1,8 +1,9 @@
 CC ?= riscv64-unknown-linux-gnu-clang
+AR ?= riscv64-unknown-linux-gnu-ar
 CFLAGS ?= -O3 -march=rv64gcv -fPIC
 DEFINES = -DHAVE_INTRINSICS_RVV
 
-SRC_DIRS = qpel chroma
+SRC_DIRS = qpel chroma idct
 
 SRCS = $(foreach dir, $(SRC_DIRS), $(wildcard $(dir)/*.c))
 
@@ -16,7 +17,7 @@ $(LIB_SO): $(SRCS)
 
 $(LIB_A): $(SRCS)
 	$(CC) -c $(CFLAGS) $(DEFINES) $(SRCS)
-	ar rcs $@ *.o
+	$(AR) rcs $@ *.o
 	rm -f *.o
 
 clean:
