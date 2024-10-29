@@ -2,7 +2,7 @@ CC ?= riscv64-unknown-linux-gnu-clang
 CFLAGS ?= -O3 -march=rv64gcv -fPIC
 DEFINES = -DHAVE_INTRINSICS_RVV
 
-SRC_DIRS = qpel
+SRC_DIRS = qpel chroma
 
 SRCS = $(foreach dir, $(SRC_DIRS), $(wildcard $(dir)/*.c))
 
