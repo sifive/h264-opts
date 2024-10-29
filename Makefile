@@ -3,7 +3,7 @@ AR ?= riscv64-unknown-linux-gnu-ar
 CFLAGS ?= -O3 -march=rv64gcv -fPIC
 DEFINES = -DHAVE_INTRINSICS_RVV
 
-SRC_DIRS = qpel chroma idct
+SRC_DIRS = qpel chroma idct inloop
 
 SRCS = $(foreach dir, $(SRC_DIRS), $(wildcard $(dir)/*.c))
 
